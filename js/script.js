@@ -13,12 +13,17 @@ const navToggle = document.querySelector(".nav_toggle"),
 
 /*===== TYPING TEXT =====*/
 
-    var typed = new Typed(".profession_text", {
-        strings: ["Web Developer", "Web Designer", "Web Monster"],
-        typeSpeed: 70,
-        backSpeed: 70,
-        loop: true,
-    })
+var typed = new Typed(".profession_text", {
+  strings: ["Cyber Warrior", "Cyber Defender", "Persistent Hacker"],
+  typeSpeed: 70,
+  backSpeed: 70,
+  loop: true,
+  showCursor: false, // Hide the cursor
+  smartBackspace: true, // Make the backspacing more realistic
+  backDelay: 1000, // Delay before starting to backspace
+  startDelay: 1000, // Delay before starting to type
+});
+
 
 
 /*===== COUNTER =====*/

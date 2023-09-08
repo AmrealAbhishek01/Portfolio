@@ -129,15 +129,26 @@ const Contact = () => {
   const form = useRef();
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    emailjs.sendForm('service_tox7kqs', 'template_nv7k7mj', form.current, 'SybVGsYS52j2TfLbi')
-      .then((result) => {
-        setOpen(true);
-        form.current.reset();
-      }, (error) => {
-        console.log(error.text);
-      });
-  }
+  e.preventDefault();
+
+  // Collect form data
+  const formData = new FormData(form.current);
+  
+  // Send form data to the server
+  fetch('/submit', {
+    method: 'POST',
+    body: formData,
+  })
+    .then((response) => response.text())
+    .then((message) => {
+      setOpen(true);
+      form.current.reset();
+      console.log(message); // Log the server's response
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
 
 
 
